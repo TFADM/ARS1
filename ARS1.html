@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppSheet LIFF</title>
+    <script src="https://static.line-scdn.net/liff/edge/versions/2.15.0/sdk.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        window.onload = function () {
+            liff.init({ liffId: 'YOUR_LIFF_ID' }).then(() => {
+                if (liff.isLoggedIn()) {
+                    runApp();
+                } else {
+                    liff.login();
+                }
+            });
+        };
+
+        function runApp() {
+            liff.getProfile().then(profile => {
+                let userId = profile.userId;
+                let displayName = profile.displayName;
+                let pictureUrl = profile.pictureUrl;
+                let appsheetUrl = `https://www.appsheet.com/start/d0b8d66d-2d9d-495a-b54f-79bdf1576850#appName=TAFAattendance-306618164-23-05-28&userId=${userId}&displayName=${displayName}&pictureUrl=${pictureUrl}`;
+                document.body.innerHTML = `<iframe src="https://www.appsheet.com/start/d0b8d66d-2d9d-495a-b54f-79bdf1576850"></iframe>`;
+            }).catch(err => console.error(err));
+        }
+    </script>
+</body>
+</html>
