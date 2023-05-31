@@ -20,25 +20,53 @@
 </head>
 <body>
     <script>
-        window.onload = function () {
-            liff.init({ liffId: '1660908214-yZeZANAd' }).then(() => {
-                if (liff.isLoggedIn()) {
-                    runApp();
-                } else {
-                    liff.login();
-                }
-            });
-        };
+    
+    function runApp() {
+        liff.getProfile().then(profile => {
+            let userId = profile.userId;
+            let displayName = profile.displayName;
+            let pictureUrl = profile.pictureUrl;
+           let appsheetUrl = `https://www.appsheet.com/start/d0b8d66d-2d9d-495a-b54f-79bdf1576850#appName=TAFAattendance-306618164-23-05-28&userId=${userId}&displayName=${displayName}&pictureUrl=${pictureUrl}`;            
+            document.getElementById("formframe").src = url;
+        }).catch(err => console.error(err));
+    }
 
-        function runApp() {
-            liff.getProfile().then(profile => {
-                let userId = profile.userId;
-                let displayName = profile.displayName;
-                let pictureUrl = profile.pictureUrl;
-                let appsheetUrl = `https://www.appsheet.com/start/d0b8d66d-2d9d-495a-b54f-79bdf1576850#appName=TAFAattendance-306618164-23-05-28&userId=${userId}&displayName=${displayName}&pictureUrl=${pictureUrl}`;
-                document.body.innerHTML = `<iframe src="https://www.appsheet.com/start/d0b8d66d-2d9d-495a-b54f-79bdf1576850"></iframe>`;
-            }).catch(err => console.error(err));
+    liff.init({ liffId: "1660908214-yZeZANAd" }, () => {
+        if (liff.isLoggedIn()) {
+            runApp();
+        } else {
+            liff.login();
         }
-    </script>
+    }, err => console.error(err.code, error.message));
+
+</script>
+    
+    
+    
+    
+    
+    
+    
+ //   <script>
+ //       window.onload = function () {
+ //           liff.init({ liffId: '1660908214-yZeZANAd' }).then(() => {
+//                if (liff.isLoggedIn()) {
+ //                   runApp();
+//                } else {
+//                    liff.login();
+//                }
+//            });
+//        };
+
+//        function runApp() {
+//            liff.getProfile().then(profile => {
+//                let userId = profile.userId;
+//                let displayName = profile.displayName;
+//                let pictureUrl = profile.pictureUrl;
+//                let appsheetUrl = `https://www.appsheet.com/start/d0b8d66d-2d9d-495a-b54f-79bdf1576850#appName=TAFAattendance-306618164-23-05-28&userId=${userId}&displayName=${displayName}&pictureUrl=${pictureUrl}`;
+//                document.body.innerHTML = `<iframe src="https://www.appsheet.com/start/d0b8d66d-2d9d-495a-b54f-79bdf1576850"></iframe>`;
+//            }).catch(err => console.error(err));
+//        }
+//    </script>
 </body>
 </html>
