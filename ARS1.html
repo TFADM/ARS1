@@ -26,7 +26,7 @@
             let userId = profile.userId;
             let displayName = profile.displayName;
             let pictureUrl = profile.pictureUrl;
-           let appsheetUrl = `https://www.appsheet.com/start/d0b8d66d-2d9d-495a-b54f-79bdf1576850#appName=TAFAattendance-306618164-23-05-28&userId=${userId}&displayName=${displayName}&pictureUrl=${pictureUrl}`;            
+           let appsheetUrl = "https://www.appsheet.com/start/d0b8d66d-2d9d-495a-b54f-79bdf1576850#appName=TAFAattendance-306618164-23-05-28?userId=" + userId + "&displayName=" + displayName + "&pictureUrl=" +pictureUrl;            
             document.getElementById("formframe").src = url;
         }).catch(err => console.error(err));
     }
