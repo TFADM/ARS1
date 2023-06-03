@@ -34,10 +34,10 @@
      <script>
         function runApp() {
             liff.getProfile().then(profile => {
-                let userId = profile.userId;
+                let LINEuserId = profile.userId;
                 let displayName = profile.displayName;
                 let pictureUrl = profile.pictureUrl;
-                let url = "https://www.appsheet.com/start/d0b8d66d-2d9d-495a-b54f-79bdf1576850#view=UserSettings&userId=" + userId + "&displayName=" + displayName + "&pictureUrl=" + pictureUrl + "&LineUserID=" + userId;
+                let url = "https://www.appsheet.com/start/d0b8d66d-2d9d-495a-b54f-79bdf1576850?LINEuserId=" + LINEuserId + "&displayName=" + displayName + "&pictureUrl=" + pictureUrl;
                 document.getElementById("formframe").src = url;
 
                 // Display the Line user ID on the page
