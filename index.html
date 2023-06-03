@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AppSheet LIFF</title>
+    <title>TAFA ลงเวลางาน</title>
     <script src="https://static.line-scdn.net/liff/edge/versions/2.15.0/sdk.js"></script>
     <style>
         body {
@@ -40,7 +40,7 @@
 </head>
 
 <body>
-    <h1>สวัสดี</h1>
+    
     <p>คุณ<span id="displayName"></span></p>
     <iframe id="formframe" src="" frameborder="0"></iframe>
      <script>
@@ -53,8 +53,11 @@
                 document.getElementById("formframe").src = url;
 
                 // Display the Line user ID on the page
-                document.getElementById("lineUserId").textContent = userId;
-            }).catch(err => console.error(err));
+                document.getElementById("displayName").textContent = displayName;
+            }).catch(err => {
+                console.error(err);
+                document.getElementById("displayName").textContent = "Error retrieving Line user ID";
+            });
         }
 
         liff.init({ liffId: "1660908214-yZeZANAd" }, () => {
